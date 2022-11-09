@@ -1,0 +1,47 @@
+﻿<Window x:Class="PichlerUndStroblDashbaord.AuftragAusbuchenStückzahlerfassung"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PichlerUndStroblDashbaord"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="350" Width="700" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="Black">
+        <Label Content="Füllen Sie die folgenden Felder aus" HorizontalAlignment="Left" Margin="130,31,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30" x:Name="lblÜberschrift"/>
+        <!--Farbverlauf OBEN-->
+        <Grid Height="5" Margin="0,116,0,0" VerticalAlignment="Top">
+            <Grid.Background>                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">                    <GradientStop Color="#FF30B4E6" Offset="1"/>                    <GradientStop Color="#FFFE04D1" Offset="0"/>                </LinearGradientBrush>            </Grid.Background>
+        </Grid>
+
+        <!--CENTER SCREEN-->
+
+        <!--Stückzahl Gut-->
+        <Label Content="Stückzahl Gut" HorizontalAlignment="Left" Margin="57,151,0,0" Foreground="White" Height="24" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Margin="25,168,456,154">
+            <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtStückzahlGut" Margin="10 0" materialDesign:HintAssist.Hint="Stückzahl eingeben" Foreground="White" Width="154" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448"  materialDesign:TextFieldAssist.SuffixText="Stk."/>
+        </StackPanel>
+
+        <!--Stückzahl Schlecht-->
+        <Label Content="Stückzahl Schlecht" HorizontalAlignment="Left" Margin="283,151,0,0" Foreground="White" Height="24" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Margin="252,168,251,154">
+            <materialDesign:PackIcon Kind="DeleteCircleOutline" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtStückzahlSchlecht" Margin="10 0" materialDesign:HintAssist.Hint="Stückzahl eingeben" Foreground="White" Width="154" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448"  materialDesign:TextFieldAssist.SuffixText="Stk."/>
+        </StackPanel>
+
+        <!--Stückzahl Nacharbeit-->
+        <Label Content="Stückzahl Nacharbeit" HorizontalAlignment="Left" Margin="506,151,0,0" Foreground="White" Height="24" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Margin="475,168,28,154">
+            <materialDesign:PackIcon Kind="DeleteCircleOutline" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtStückzahlNacharbeit" Margin="10 0" materialDesign:HintAssist.Hint="Stückzahl eingeben" Foreground="White" Width="154" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448"  materialDesign:TextFieldAssist.SuffixText="Stk."/>
+        </StackPanel>
+
+        <!--Farbverlauf UNTEN-->
+        <Grid Height="5" Margin="0,227,0,0" VerticalAlignment="Top">
+            <Grid.Background>                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">                    <GradientStop Color="#FF30B4E6" Offset="1"/>                    <GradientStop Color="#FFFE04D1" Offset="0"/>                </LinearGradientBrush>            </Grid.Background>
+        </Grid>
+        <!--Button Spiechern-->
+        <Button Content="Speichern" HorizontalAlignment="Left" Margin="50,259,0,0" VerticalAlignment="Top" Width="610" Height="60" x:Name="btnSpeichern" Click="btnSpeichern_Click"/>
+    </Grid>
+</Window>

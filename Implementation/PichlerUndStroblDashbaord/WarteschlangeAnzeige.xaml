@@ -1,0 +1,39 @@
+﻿<Window x:Class="PichlerUndStroblDashbaord.WarteschlangeAnzeige"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PichlerUndStroblDashbaord"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="800" Width="1400" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="clBr" Color="Green" />
+    </Window.Resources>
+
+
+    <Grid Background="Black">
+        <Label Content="Warteschlange" HorizontalAlignment="Left" Margin="603,31,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40"/>
+        <!--Farbverlauf OBEN-->
+        <Grid Height="5" Margin="0,98,0,661">
+            <Grid.Background>                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">                    <GradientStop Color="#FF30B4E6" Offset="1"/>                    <GradientStop Color="#FFFE04D1" Offset="0"/>                </LinearGradientBrush>            </Grid.Background>
+        </Grid>
+
+        <!--CENTER SCREEN-->
+        <Label Content="" HorizontalAlignment="Left" Margin="100,137,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" Background="White" Width="1200" Height="20" Opacity="1"/>
+        <DataGrid HorizontalAlignment="Left" Height="556" Margin="100,126,0,0" VerticalAlignment="Top" Width="1200" x:Name="dgWarteschlange" AutoGenerateColumns="True" Background="Transparent" Foreground="White" ></DataGrid>
+
+        <!--Farbverlauf UNTEN-->
+        <Grid Height="5" Margin="0,602,0,22">
+            <Grid.Background>                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">                    <GradientStop Color="#FF30B4E6" Offset="1"/>                    <GradientStop Color="#FFFE04D1" Offset="0"/>                </LinearGradientBrush>            </Grid.Background>
+        </Grid>
+
+
+        <!--Button Schließen-->
+        <Button Margin="1324,20,20,724" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Schließen" x:Name="btnSchließen" Click="btnSchließen_Click">
+            <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30"></materialDesign:PackIcon>
+        </Button>
+
+    </Grid>
+</Window>

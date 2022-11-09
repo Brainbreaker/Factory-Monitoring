@@ -1,0 +1,101 @@
+﻿<Window x:Class="PichlerUndStroblDashbaord.HomescreenAbteilungLasergravieren"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:PichlerUndStroblDashbaord"
+        mc:Ignorable="d"
+        Title="Dashboard"
+        Width="1400" Height="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+
+    <Grid Background="#FF502757">
+        <materialDesign:ColorZone Mode="PrimaryMid" Padding="16" Background="#FF000102">
+            <DockPanel Margin="1300,0,0,0">
+                <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
+                    <Button Content="{materialDesign:PackIcon Kind=Logout}" x:Name="btnAbmelden" Click="btnAbmelden_Click" Background="Transparent" ToolTip="Abmelden" />
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+
+        <!--Oberen Seitenberiech-->
+        <Label Content="Diesntag, 06.Juli.2021" HorizontalAlignment="Left" Margin="1121,14,0,0" VerticalAlignment="Top" Foreground="White" x:Name="lblUhrzeit" FontSize="20"></Label>
+        <Label Content="Abteilung Lasergravieren" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30"></Label>
+        <Label Content="Benutzername" HorizontalAlignment="Left" Margin="426,16,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" x:Name="lblBenutzername"></Label>
+
+        <!--Linker Seitenberiech-->
+        <materialDesign:Card Background="Black" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="8" UniformCornerRadius="0" Margin="0,64,1100,0">
+        </materialDesign:Card>
+
+        <!--Verlinkungsbuttons-->
+        <materialDesign:Card Margin="28,68,1123,20" Background="Transparent">
+            <StackPanel Margin="0,0,0,-93">
+                <!--Buton Warteschlange anzeigen-->
+                <Button RenderTransformOrigin="0.244,0.594" Height="61" Margin="5" Background="White" materialDesign:ButtonAssist.CornerRadius="10" x:Name="btnWarteschlangeAnzeigen" Click="btnWarteschlangeAnzeigen_Click">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="ChartSankeyVariant" Width="24" Height="25" Foreground="Black" HorizontalAlignment="Center"/>
+                        <TextBlock TextAlignment="Center" Foreground="Black"><Run Text="Warteschlange anzeigen"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <!--Button Auftrag Einbuchen-->
+                <Button RenderTransformOrigin="0.5,0.5" Height="61" Margin="5" Background="White" materialDesign:ButtonAssist.CornerRadius="10" x:Name="btnAuftragEinbuchen" Click="btnAuftragEinbuchen_Click">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="QrcodeScan" Width="24" Height="25" Foreground="Black" HorizontalAlignment="Center"/>
+                        <TextBlock TextAlignment="Center" Foreground="Black"><Run Text="Auftrag einbuchen"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <!--Button Auftrag Ausbuchen-->
+                <Button RenderTransformOrigin="0.244,0.594" Height="61" Margin="5" Background="White" materialDesign:ButtonAssist.CornerRadius="10" x:Name="btnAuftragAusbuchen" Click="btnAuftragAusbuchen_Click">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="QrcodeScan" Width="24" Height="25" Foreground="Black" HorizontalAlignment="Center"/>
+                        <TextBlock TextAlignment="Center" Foreground="Black"><Run Text="Auftrag ausbuchen"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <!--Button Abgeschlossene Aufträge-->
+                <Button RenderTransformOrigin="0.244,0.594" Height="61" Margin="5" Background="White" materialDesign:ButtonAssist.CornerRadius="10" x:Name="btnAbgeschlosseneAufträge" Click="btnAbgeschlosseneAufträge_Click">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="Notebook" Width="24" Height="25" Foreground="Black" HorizontalAlignment="Center"/>
+                        <TextBlock TextAlignment="Center" Foreground="Black"><Run Text="Abgeschlossene Aufträge"/></TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </materialDesign:Card>
+
+        <!--Statistik 1 LINIENCHART Implementierung mit Dummy Daten-->
+        <materialDesign:Card HorizontalAlignment="Left" Margin="357,120,0,0" VerticalAlignment="Top" Height="300" Width="450">
+            <lvc:CartesianChart LegendLocation="Bottom" Series="{Binding SeriesCollectionChart1}" HorizontalAlignment="Left" Height="330" Margin="10,10,0,0" VerticalAlignment="Top" Width="416" />
+        </materialDesign:Card>
+
+        <!--Statistik 2 BALKENCHART Implementierung mit Dummy Daten-->
+        <materialDesign:Card HorizontalAlignment="Left" Margin="904,120,0,0" VerticalAlignment="Top" Height="300" Width="450">
+            <lvc:CartesianChart Series="{Binding SeriesCollectionChart2}" HorizontalAlignment="Left" Height="330" Margin="10,10,0,0" VerticalAlignment="Top" Width="416"/>
+        </materialDesign:Card>
+
+        <!--Statistik 3 TORTENCHART Implementierung mit Dummy Daten-->
+        <materialDesign:Card HorizontalAlignment="Left" Margin="357,480,0,0" VerticalAlignment="Top" Height="300" Width="450">
+            <lvc:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}">
+                <lvc:PieChart.Series>
+                    <lvc:PieSeries Title="Carl Zeiss" Values="6" DataLabels="False"
+                               LabelPoint="{Binding PointLabel}"/>
+                    <lvc:PieSeries Title="VAT" Values="4" DataLabels="False" 
+                               LabelPoint="{Binding PointLabel}"/>
+                    <lvc:PieSeries Title="Audi" Values="2" DataLabels="False" 
+                               LabelPoint="{Binding PointLabel}"/>
+                </lvc:PieChart.Series>
+            </lvc:PieChart>
+        </materialDesign:Card>
+
+        <!--Statistik 4 Punktediagramm-->
+        <materialDesign:Card HorizontalAlignment="Left" Margin="904,480,0,0" VerticalAlignment="Top" Height="300" Width="450">
+            <lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollectionChart4}"/>
+        </materialDesign:Card>
+
+        <!--Übershrift Labels der Charts-->
+        <Label Content="Produktivität" HorizontalAlignment="Center" Margin="498,72,726,0" VerticalAlignment="Top" Foreground="White" FontSize="30"/>
+        <Label Content="Preisentwicklung" HorizontalAlignment="Center" Margin="1016,72,154,0" VerticalAlignment="Top" Foreground="White" FontSize="30"/>
+        <Label Content="Kunden" HorizontalAlignment="Center" Margin="529,432,761,0" VerticalAlignment="Top" Foreground="White" FontSize="30"/>
+        <Label Content="Auftragsgrößen" HorizontalAlignment="Center" Margin="1030,432,154,0" VerticalAlignment="Top" Foreground="White" FontSize="30" Width="216"/>
+
+    </Grid>
+</Window>

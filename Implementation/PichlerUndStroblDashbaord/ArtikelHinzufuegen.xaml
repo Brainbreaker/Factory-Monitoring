@@ -1,0 +1,96 @@
+﻿<Window x:Class="PichlerUndStroblDashbaord.ArtikelHinzufuegen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PichlerUndStroblDashbaord"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="800" Width="700" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="Black">
+        <Label Content="Artikel hinzufügen" HorizontalAlignment="Left" Margin="225,31,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30"/>
+        <!--Farbverlauf OBEN-->
+        <Grid Height="5" Margin="0,98,0,661">
+            <Grid.Background>                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">                    <GradientStop Color="#FF30B4E6" Offset="1"/>                    <GradientStop Color="#FFFE04D1" Offset="0"/>                </LinearGradientBrush>            </Grid.Background>
+        </Grid>
+
+        <!--CENTER SCREEN-->
+
+        <!--Artikelname-->
+        <Label Content="Artikelname" HorizontalAlignment="Left" Margin="132,151,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <StackPanel Orientation="Horizontal" Margin="100,168,381,606">
+            <materialDesign:PackIcon Kind="Domain" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtArtikelname" Margin="10 0" materialDesign:HintAssist.Hint="Artikelname eingeben" Foreground="White" Width="154" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448"/>
+        </StackPanel>
+        <!--Artikelnummer-->
+        <Label Content="Artikelnummer" HorizontalAlignment="Left" Margin="132,213,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <StackPanel Orientation="Horizontal" Margin="100,230,381,544">
+            <materialDesign:PackIcon Kind="Merge" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtArtikelnummer" Margin="10 0" materialDesign:HintAssist.Hint="Artikelnummer eingeben" Foreground="White" Width="154" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448"/>
+        </StackPanel>
+        <!--Preis pro Stück-->
+        <Label Content="Preis pro Stück" HorizontalAlignment="Left" Margin="132,280,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <StackPanel Orientation="Horizontal" Margin="100,297,381,477">
+            <materialDesign:PackIcon Kind="CurrencyEur" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtPreis" Margin="10 0" materialDesign:HintAssist.Hint="Preis eingeben" Foreground="White" Width="154" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" materialDesign:TextFieldAssist.SuffixText="€"/>
+        </StackPanel>
+        <!--Zeichnung-->
+        <Label Content="Zeichnung" HorizontalAlignment="Left" Margin="132,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Zeichnung suchen" HorizontalAlignment="Left" Margin="132,359,0,0" VerticalAlignment="Top" Foreground="White" x:Name="lblSucheZeichnung"/>
+        <TextBox Name="txtSucheZeichnung" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Suchen Sie die gewünschte Datei." Margin="0,390,402,383" BorderBrush="White" BorderThickness="1" Background="White" HorizontalAlignment="Right" Width="187" Visibility="Hidden"/>
+        <StackPanel Orientation="Horizontal" Margin="100,359,381,415">
+            <materialDesign:PackIcon Kind="FilePdf" Width="25" Height="25" Foreground="White"/>
+        </StackPanel>
+        <!--Zeichnung Button Suchen-->
+        <Button Content="{materialDesign:PackIcon Kind=Search}" ToolTip="Zeichnung suchen" Width="49" Height="20" Margin="236,363,415,417" x:Name="btnSucheZeichnung" Click="btnSucheZeichnung_Click" />
+        <!--Revision/Index-->
+        <Label Content="Revision/Index" HorizontalAlignment="Left" Margin="435,151,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <StackPanel Orientation="Horizontal" Margin="403,168,100,606">
+            <materialDesign:PackIcon Kind="Matrix" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtRevision" Margin="10 0" materialDesign:HintAssist.Hint="Revision eingeben" Foreground="White" Width="154" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448"/>
+        </StackPanel>
+        <!--Kunde-->
+        <Label Content="Kunde" HorizontalAlignment="Left" Margin="435,213,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <StackPanel Orientation="Horizontal" Margin="403,230,100,544">
+            <materialDesign:PackIcon Kind="CustomerService" Width="25" Height="25" Foreground="White"/>
+            <ComboBox materialDesign:HintAssist.Hint="Kunde auswählen" Foreground="White" Background="Black" Margin="10,0,0,0" x:Name="coxKunde">
+                <ComboBoxItem Content="Airbus" Foreground="Black"/>
+                <ComboBoxItem Content="Audi" Foreground="Black"/>
+                <ComboBoxItem Content="Carl Zeiss" Foreground="Black"/>
+                <ComboBoxItem Content="VAT" Foreground="Black"/>
+            </ComboBox>
+        </StackPanel>
+        <!--Bearbeitungszeit Soll-->
+        <Label Content="Bearbeitungszeit Soll" HorizontalAlignment="Left" Margin="435,280,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <StackPanel Orientation="Horizontal" Margin="403,297,55,477">
+            <materialDesign:PackIcon Kind="Timer" Width="25" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtBearbeitungszeitSoll" Margin="10 0" materialDesign:HintAssist.Hint="Bearbeitungszeit eingeben" Foreground="White" Width="208" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" materialDesign:TextFieldAssist.SuffixText="Stunden"/>
+        </StackPanel>
+        <!--3D-Modell-->
+        <Label Content="3D-Modell" HorizontalAlignment="Left" Margin="435,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="3D-Modell suchen" HorizontalAlignment="Left" Margin="435,359,0,0" VerticalAlignment="Top" Foreground="White" x:Name="lblSuche3DModell"/>
+        <TextBox Name="txtSuche3DModell" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Suchen Sie die gewünschte Datei." Margin="0,390,402,383" BorderBrush="White" BorderThickness="1" Background="White" HorizontalAlignment="Right" Width="187" Visibility="Hidden"/>
+        <StackPanel Orientation="Horizontal" Margin="403,359,78,415">
+            <materialDesign:PackIcon Kind="FilePdf" Width="25" Height="25" Foreground="White"/>
+        </StackPanel>
+        <!--3D-Modell Suchen-->
+        <Button Content="{materialDesign:PackIcon Kind=Search}" ToolTip="Icon" Width="49" Height="20" Margin="545,363,106,417" x:Name="btnSuche3DModell" Click="btnSuche3DModell_Click"/>
+        <!--Kommentar-->
+        <Label Content="Kommentar" HorizontalAlignment="Left" Margin="132,417,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.516,3.542"/>
+        <TextBox TextWrapping="Wrap" materialDesign:HintAssist.Hint="Geben Sie einen Kommentar ein." Margin="0,446,100,227" BorderBrush="White" BorderThickness="1" Background="White" HorizontalAlignment="Right" Width="468" x:Name="txtKommentar"/>
+
+        <!--Farbverlauf UNTEN-->
+        <Grid Height="5" Margin="0,602,0,192">
+            <Grid.Background>                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">                    <GradientStop Color="#FF30B4E6" Offset="1"/>                    <GradientStop Color="#FFFE04D1" Offset="0"/>                </LinearGradientBrush>            </Grid.Background>
+        </Grid>
+
+        <!--Vollständigkeitsprüfung-->
+        <Label Content="Bitte füllen Sie alle Felder aus!" HorizontalAlignment="Left" Margin="193,619,0,0" VerticalAlignment="Top" Foreground="Red" FontSize="25" Visibility="Hidden" x:Name="lblVollständigkeit"/>
+        <!--Button Spiechern-->
+        <Button Content="Speichern" HorizontalAlignment="Left" Margin="50,670,0,0" VerticalAlignment="Top" Width="610" Height="60" x:Name="btnSpeichern" Click="btnSpeichern_Click"/>
+        <!--Button Schließen-->
+        <Button Margin="620,23,24,721" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Schließen" x:Name="btnSchließen" Click="btnSchließen_Click">
+            <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30"></materialDesign:PackIcon>
+        </Button>
+    </Grid>
+</Window>
